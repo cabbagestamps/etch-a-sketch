@@ -1,12 +1,14 @@
 
 let content = document.getElementById('content')
 
-for (let i=0; i<16; i++) {
+for (let i=0; i<900; i++) {
     let newDiv = document.createElement('div');
-    console.log(newDiv)
-    newDiv.id = `div ${i}` 
+    newDiv.id = `div${i}` 
     content.appendChild(newDiv);
     newDiv.textContent = `div ${i}`
+    newDiv.addEventListener('mouseenter', () => {
+        newDiv.classList.add('active')
+    })
     if (i<4) {
         newDiv.classList.add('row1');   
     } else if (i<8) {
@@ -16,8 +18,9 @@ for (let i=0; i<16; i++) {
     } else {
         newDiv.classList.add('row4');
     }
-    
 }
+
+
 
 
 

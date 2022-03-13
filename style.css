@@ -1,13 +1,36 @@
-div {
+div.row1,
+div.row2,
+div.row3,
+div.row4 {
     box-sizing: border-box;
     border: 1px solid black;
-    width: 100px;
-    height: 100px;
-    flex: 1 0 auto
+    width: 30px;
+    height: 30px;
+    
 }
 
+/*div.row1:hover,
+div.row2:hover,
+div.row3:hover,
+div.row4:hover {
+    background-color: black;
+    transition: 0.5s;
+}
+*/
 #content {
-    display: flex;
-
+    display: grid;
+    grid-template-columns: 30px 30px 30px 30px 30px 
+    30px 30px 30px 30px 30px
+    30px 30px 30px 30px 30px
+    30px 30px 30px 30px 30px
+    30px 30px 30px 30px 30px
+    30px 30px 30px 30px 30px; 
 }
+
+.active {
+    background-color: black;
+    transition: 0.5s;
+}
+
+
 
