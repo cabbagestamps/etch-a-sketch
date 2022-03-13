@@ -3,4 +3,11 @@ div {
     border: 1px solid black;
     width: 100px;
     height: 100px;
+    flex: 1 0 auto
 }
+
+#content {
+    display: flex;
+
+}
+

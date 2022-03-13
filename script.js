@@ -1,19 +1,23 @@
 
 let content = document.getElementById('content')
-let div1 = document.createElement('div');
-content.appendChild(div1);
-
-
-function numberGen() {
-    for (let a=0; a<16; a++) {
-    return a
-    }
-}
-let a;
 
 for (let i=0; i<16; i++) {
-    let i = document.createElement('div');
+    let newDiv = document.createElement('div');
+    console.log(newDiv)
+    newDiv.id = `div ${i}` 
+    content.appendChild(newDiv);
+    newDiv.textContent = `div ${i}`
+    if (i<4) {
+        newDiv.classList.add('row1');   
+    } else if (i<8) {
+        newDiv.classList.add('row2');
+    } else if (i<12) {
+        newDiv.classList.add('row3');
+    } else {
+        newDiv.classList.add('row4');
+    }
     
-    i.setAttribute('id', 'div + i');  
-    content.appendChild(i);
 }
+
+
+
