@@ -1,20 +1,30 @@
+:root {
+    --user-rows-input: ;
+    --user-columns-input: ;
+}
+
+
+
+
 div .cell {
     box-sizing: border-box;
     border: 1px solid black;
-    idth: 30px;
-    eight: 30px;
+    
+    
     
 }
 
+button {
+    margin: 20px;
+}
 
 
 #content {
     width: 500px;
     height: 500px;
     display: grid;
-    gap: 0;
-    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(10px, 1fr));
+    grid-template-columns: repeat(var(--user-columns-input), 1fr);
+    grid-template-rows: repeat(var(--user-rows-input), 1fr)
     
     
     
@@ -28,3 +38,4 @@ div .cell {
 
 
 
+/* put default value for var things */ 

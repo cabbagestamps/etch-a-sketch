@@ -1,7 +1,7 @@
 
 let content = document.getElementById('content')
 
-for (let i=0; i<500; i++) {
+for (let i=0; i<100; i++) {
     let newDiv = document.createElement('div');
     newDiv.id = `div${i}`; 
     newDiv.classList.add('cell');
@@ -12,6 +12,40 @@ for (let i=0; i<500; i++) {
     }) 
 }
 
+
+let cellCount;
+
+let root = document.querySelector(':root');
+
+let rootStyles;
+
+let rowCount;
+let columnCount;
+
+function getStyles() {
+    rootStyles = getComputedStyle(root);
+    rowCount = rootStyles.getPropertyValue('--user-rows-input') 
+    columnCount = rootStyles.getPropertyValue('--user-columns-input')
+    cellCount = rowCount * columnCount;
+}
+
+
+
+let body = document.body
+
+let promptButton = document.createElement('button');
+promptButton.textContent = 'Input columns and rows';
+body.insertBefore(promptButton, content);
+
+promptButton.addEventListener('click', promptFunction)
+
+
+
+function promptFunction() {
+    root.style.setProperty('--user-rows-input', prompt('Input rows', '10')) ;
+    root.style.setProperty('--user-columns-input', prompt('Input columns', '10'))
+    
+}
 
 
 
