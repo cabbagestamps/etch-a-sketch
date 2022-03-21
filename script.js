@@ -7,6 +7,9 @@ let rootStyles;
 let rowCount;
 let columnCount;
 
+let heading = document.createElement('h1');
+heading.textContent = 'Etch-a-Sketch';
+body.insertBefore(heading, content);
 
 function drawCells() {
     for (let i=0; i<cellCount; i++) {
@@ -60,5 +63,15 @@ function clearCells() {
     } 
 }
 
+
+
+let colorBox = document.createElement('div');
+colorBox.classList.add('colorBox');
+body.appendChild(colorBox); 
+colorBox.addEventListener('click', changeColor);
+
+function changeColor() {
+    root.style.setProperty('--active-color', 'red')
+}
 
 

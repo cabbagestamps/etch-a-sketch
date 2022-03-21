@@ -1,6 +1,8 @@
 :root {
     --user-rows-input: ;
     --user-columns-input: ;
+    --active-color: black; 
+     
 }
 
 
@@ -9,13 +11,10 @@
 div .cell {
     box-sizing: border-box;
     border: 1px solid black;
-    
-    
-    
 }
 
 button {
-    margin: 20px;
+    margin-bottom: 20px;
 }
 
 
@@ -33,10 +32,15 @@ button {
 }
 
 .active {
-    background-color: black;
+    background-color: var(--active-color);
     transition: 0.2s;
 }
 
-
+.colorBox {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    margin: 10px;
+}
 
 /* put default value for var things */ 
