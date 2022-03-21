@@ -1,26 +1,26 @@
 
 let content = document.getElementById('content')
-
-for (let i=0; i<100; i++) {
-    let newDiv = document.createElement('div');
-    newDiv.id = `div${i}`; 
-    newDiv.classList.add('cell');
-    content.appendChild(newDiv);
-   // newDiv.textContent = `div ${i}`
-    newDiv.addEventListener('mousedown', () => {
-        newDiv.classList.add('active')   
-    }) 
-}
-
-
-let cellCount;
-
+let body = document.body;
 let root = document.querySelector(':root');
-
+let cellCount;
 let rootStyles;
-
 let rowCount;
 let columnCount;
+
+
+function drawCells() {
+    for (let i=0; i<cellCount; i++) {
+        let newDiv = document.createElement('div');
+        newDiv.id = `div${i}`; 
+        newDiv.classList.add('cell');
+        content.appendChild(newDiv);
+        
+        newDiv.addEventListener('mouseover', () => {
+            newDiv.classList.add('active')   
+        }) 
+    }
+}
+
 
 function getStyles() {
     rootStyles = getComputedStyle(root);
@@ -31,31 +31,34 @@ function getStyles() {
 
 
 
-let body = document.body
-
 let promptButton = document.createElement('button');
 promptButton.textContent = 'Input columns and rows';
 body.insertBefore(promptButton, content);
-
 promptButton.addEventListener('click', promptFunction)
 
-
+let rowPrompt;
+let columnPrompt;
 
 function promptFunction() {
-    root.style.setProperty('--user-rows-input', prompt('Input rows', '10')) ;
-    root.style.setProperty('--user-columns-input', prompt('Input columns', '10'))
+    clearCells()
+    rowPrompt = window.prompt('Input rows', '10')
+    columnPrompt = window.prompt('Input columns', '10')
+    if (rowPrompt < 0) rowPrompt = 0;
+    if (rowPrompt > 80) rowPrompt = 80;
+    if (columnPrompt < 0) columnPrompt = 0;
+    if (columnPrompt > 80) columnPrompt = 80;
+    root.style.setProperty('--user-rows-input', rowPrompt) ;
+    root.style.setProperty('--user-columns-input', columnPrompt)
+    getStyles()
+    drawCells()
     
 }
 
+function clearCells() {
+    while (content.firstChild) {
+        content.removeChild(content.firstChild);
+    } 
+}
 
-
-
-/* Add a button to the top of the screen which will 
-clear the current grid and send the user a popup asking
- for the number of squares per side for the new grid.
-  Once entered, the new grid should be generated in the same total
-   space as before (e.g. 960px wide) so that you’ve got 
-   a new sketch pad.
-*/
 
 
