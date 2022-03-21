@@ -20,20 +20,21 @@ button {
 
 
 #content {
-    width: 500px;
-    height: 500px;
+    width: 800px;
+    height: 800px;
     display: grid;
-    grid-template-columns: repeat(var(--user-columns-input), 1fr);
-    grid-template-rows: repeat(var(--user-rows-input), 1fr)
-    
-    
-    
+    grid-template-columns: repeat(var(--user-columns-input), minmax(10px, 1fr));
+    grid-template-rows: repeat(var(--user-rows-input), minmax(10px, 1fr));
+    max-width: 100%;
+    max-height: 100%;
+    overflow: clip;
+    border: 1px solid black;
      
 }
 
 .active {
     background-color: black;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 
